@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WeatherApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="actionmenu_zhishu">zhishu</string>
+    <string name="actionmenu_qushi">qushi</string>
+    <string name="actionmenu_fresh">refresh</string>
+
+</resources>

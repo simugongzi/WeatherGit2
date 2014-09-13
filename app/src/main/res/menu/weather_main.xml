@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".WeatherMainActivity" >
+
+    <item
+        android:id="@+id/action_qushi"
+        android:showAsAction="always"
+        android:icon="@drawable/iconqushi"
+        android:title="@string/actionmenu_qushi"/>
+
+    <item
+        android:id="@+id/action_zhishu"
+        android:showAsAction="always"
+        android:icon="@drawable/iconzhishu"
+        android:title="@string/actionmenu_zhishu"/>
+
+    <item
+        android:id="@+id/action_shuaxin"
+        android:showAsAction="always"
+        android:icon="@drawable/iconrefresh"
+        android:title="@string/actionmenu_fresh"/>
+</menu>
