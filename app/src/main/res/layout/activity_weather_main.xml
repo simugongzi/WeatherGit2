@@ -2,39 +2,120 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:id="@+id/MainBg"
     android:background="@drawable/app_main_bg"
     tools:context=".WeatherMainActivity">
 
-    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
-            <!--<LinearLayout android:gravity="center_vertical" android:layout_gravity="bottom|left|center" android:id="@+id/listitem_weather_cycle_root_down" android:background="@drawable/weather_next_bg" android:layout_width="fill_parent" android:layout_height="90.0dip" />-->
-            <FrameLayout android:id="@+id/act_weather_cycle_layout_main" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                <!--<com.miui.weather2.view.ViewGallery android:id="@+id/act_weather_cycle_gallery" android:layout_width="fill_parent" android:layout_height="fill_parent" />-->
-                <RelativeLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginBottom="145.0dip">
-                    <TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@+id/act_weather_cycle_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:cursorVisible="false" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_centerVertical="true"  />
-                    <ImageView android:id="@+id/act_weather_cycle_gps_icon" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:src="@drawable/i_gps" android:layout_toRightOf="@+id/act_weather_cycle_title" android:layout_centerVertical="true" />
-                    <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:gravity="left|center" android:id="@+id/update_time" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:cursorVisible="false" android:singleLine="true" android:layout_alignParentRight="true" android:layout_centerVertical="true"  />
-                </RelativeLayout>
-                <LinearLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="12.0dip" android:layout_marginLeft="30.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="130.0dip">
-                    <!--<com.miui.weather2.view.ViewPageBar android:id="@+id/act_weather_cycle_page_bar" android:layout_width="fill_parent" android:layout_height="fill_parent" />-->
-                </LinearLayout>
-                <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:id="@+id/error_tip"  android:paddingTop="76.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/act_weather_main_data_null" />
-            </FrameLayout>
+    <!---->
+    <!--<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">-->
+
+        <!--<FrameLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">-->
+            <!--&lt;!&ndash;<LinearLayout android:gravity="center_vertical" android:layout_gravity="bottom|left|center" android:id="@+id/listitem_weather_cycle_root_down" android:background="@drawable/weather_next_bg" android:layout_width="fill_parent" android:layout_height="90.0dip" />&ndash;&gt;-->
+
+            <!--<FrameLayout android:id="@+id/act_weather_cycle_layout_main" android:layout_width="fill_parent" android:layout_height="fill_parent">-->
+
+                <!--&lt;!&ndash;<com.miui.weather2.view.ViewGallery android:id="@+id/act_weather_cycle_gallery" android:layout_width="fill_parent" android:layout_height="fill_parent" />&ndash;&gt;-->
+
+                <!--<RelativeLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="48.0dip" android:layout_marginBottom="200.0dip">-->
+                    <!--<TextView android:textSize="24.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@+id/act_weather_cycle_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:cursorVisible="false" android:singleLine="true" android:layout_alignParentLeft="true" android:layout_centerVertical="true"  />-->
+                    <!--<ImageView android:id="@+id/act_weather_cycle_gps_icon" android:background="#00000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="0.0dip" android:src="@drawable/i_gps" android:layout_toRightOf="@+id/act_weather_cycle_title" android:layout_centerVertical="true" />-->
+                    <!--<TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:gravity="left|center" android:id="@+id/update_time" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="10.0dip" android:cursorVisible="false" android:singleLine="true" android:layout_alignParentRight="true" android:layout_centerVertical="true"  />-->
+                <!--</RelativeLayout>-->
+
+                <!--<LinearLayout android:layout_gravity="bottom" android:layout_width="fill_parent" android:layout_height="12.0dip" android:layout_marginLeft="30.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="130.0dip">-->
+                    <!--&lt;!&ndash;<com.miui.weather2.view.ViewPageBar android:id="@+id/act_weather_cycle_page_bar" android:layout_width="fill_parent" android:layout_height="fill_parent" />&ndash;&gt;-->
+                <!--</LinearLayout>-->
+
+                <!--<TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:id="@+id/error_tip"  android:paddingTop="76.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/act_weather_main_data_null" />-->
+
+            <!--</FrameLayout>-->
 
 
 
-            <FrameLayout android:layout_gravity="bottom" android:id="@+id/act_weather_main_layout_view" android:paddingTop="235.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                <FrameLayout android:id="@+id/act_weather_main_layout_main" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                    <ListView android:layout_gravity="top|center" android:id="@+id/act_weather_main_other" android:background="@drawable/details_bg" android:padding="10.0dip" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent"  />
-                    <LinearLayout android:gravity="center" android:id="@+id/act_weather_main_other_empty" android:background="@drawable/app_main_data_null_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="50.0dip">
-                        <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:padding="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/act_weather_main_data_null" />
-                    </LinearLayout>
-                </FrameLayout>
-                <FrameLayout android:id="@+id/act_weather_main_layout_trend" android:background="@drawable/details_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                    <!--<com.miui.weather2.view.ViewTrend android:id="@+id/act_weather_cycle_trend_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />-->
-                </FrameLayout>
-            </FrameLayout>
-        </FrameLayout>
+            <!--<FrameLayout android:layout_gravity="bottom" android:id="@+id/act_weather_main_layout_view" android:paddingTop="235.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">-->
+
+                <!--<FrameLayout android:id="@+id/act_weather_main_layout_main" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">-->
+                    <!--<ListView android:layout_gravity="top|center" android:id="@+id/act_weather_main_other" android:background="@drawable/details_bg" android:padding="10.0dip" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent"  />-->
+                    <!--<LinearLayout android:gravity="center" android:id="@+id/act_weather_main_other_empty" android:background="@drawable/app_main_data_null_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="50.0dip">-->
+                        <!--<TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:padding="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/act_weather_main_data_null" />-->
+                    <!--</LinearLayout>-->
+                <!--</FrameLayout>-->
+
+                <!--<FrameLayout android:id="@+id/act_weather_main_layout_trend" android:background="@drawable/details_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">-->
+                    <!--&lt;!&ndash;<com.miui.weather2.view.ViewTrend android:id="@+id/act_weather_cycle_trend_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />&ndash;&gt;-->
+                <!--</FrameLayout>-->
+
+            <!--</FrameLayout>-->
+
+        <!--</FrameLayout>-->
+
+    <!--</LinearLayout>-->
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="473dp"
+        android:id="@+id/TopContent">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="216dp"
+            android:layout_gravity="center_horizontal|top">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:id="@+id/textView" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:id="@+id/textView2" />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="281dp"
+            android:id="@+id/listView"
+            android:layout_gravity="center_horizontal|bottom" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mainactivity_bottom_height"
+        android:background="@drawable/details_bg"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:id="@+id/BottomContent">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:src="@drawable/iconzhishu"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton2"
+            android:src="@drawable/iconqushi"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton3"
+            android:src="@drawable/iconrefresh"
+            android:layout_weight="1" />
     </LinearLayout>
 
 </FrameLayout>
