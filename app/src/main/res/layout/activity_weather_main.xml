@@ -1,7 +1,7 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:id="@+id/MainBg"
     android:background="@drawable/app_main_bg"
     tools:context=".WeatherMainActivity">
@@ -52,49 +52,180 @@
     <!--</LinearLayout>-->
 
     <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="473dp"
-        android:id="@+id/TopContent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/TopContent"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentStart="false"
+        android:layout_above="@+id/BottomContent">
 
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="fill_parent"
-            android:layout_height="216dp"
-            android:layout_gravity="center_horizontal|top">
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/temperature_Linear"
+                android:paddingLeft="30dp"
+                android:layout_marginTop="15dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/temp_negative"
+                    android:focusable="false"
+                    android:src="@drawable/weather_cycle_negative"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView"
+                    android:src="@drawable/zero" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView2"
+                    android:src="@drawable/zero" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView3"
+                    android:src="@drawable/weather_cycle_temperature_degree" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="cloud"
+                android:id="@+id/cloud_textView"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_marginLeft="30dp"
+                android:shadowColor="#fffffef0"
+                android:gravity="center_vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/textView" />
+                android:text="wind Text"
+                android:id="@+id/wind_textView"
+                android:textColor="#ffffffff"
+                android:textStyle="bold"
+                android:singleLine="true"
+                android:layout_marginLeft="30dp"
+                android:shadowColor="#fffffef0"
+                android:gravity="center_vertical" />
 
-            <TextView
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Medium Text"
-                android:id="@+id/textView2" />
+                android:src="@drawable/weather_cycle_split_line"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/air_linear">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingLeft="30dp"
+                    android:layout_marginTop="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="air condition nice"
+                        android:id="@+id/textView2"
+                        android:textColor="#ffffffff" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView4"
+                        android:src="@drawable/weather_cycle_aqi_detail_icon"
+                        android:clickable="true"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="public time"
+                    android:id="@+id/textView"
+                    android:paddingLeft="30dp"
+                    android:textColor="#ffffffff" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:id="@+id/Gps_info"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Location"
+                    android:id="@+id/gps_location_textview"
+                    android:textColor="#ffffffff"
+                    android:layout_centerVertical="true"
+                    android:clickable="true" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/i_gps"
+                    android:layout_toRightOf="@+id/gps_location_textview"
+                    android:layout_centerVertical="true"
+                    android:paddingTop="4dp" />
+            </RelativeLayout>
         </LinearLayout>
 
-        <ListView
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="281dp"
-            android:id="@+id/listView"
-            android:layout_gravity="center_horizontal|bottom" />
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:id="@+id/ListFrame"
+            android:background="#ffffffff"
+            android:clickable="false"></FrameLayout>
+
+
     </FrameLayout>
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/mainactivity_bottom_height"
-        android:background="@drawable/details_bg"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_splitactionbar"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:paddingLeft="60dp"
         android:paddingRight="60dp"
-        android:id="@+id/BottomContent">
+        android:id="@+id/BottomContent"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true">
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -116,6 +247,7 @@
             android:id="@+id/imageButton3"
             android:src="@drawable/iconrefresh"
             android:layout_weight="1" />
+
     </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>
