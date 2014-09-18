@@ -1,101 +1,1 @@
-package com.example.lisonglin.weatherapp;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.FrameLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-
-import java.util.ArrayList;
-import java.util.List;
-
-
-public class WeatherMainActivity extends Activity {
-    private RelativeLayout ActivityMainBG;
-
-    private  FrameLayout ListFrame;//contain different list
-    private ListView m_three_line_listview;
-    private ListView m_five_line_listview;
-    private ListView m_zhishu_listview;
-    private ListView m_qushi_listview;
-
-    private final static int tag_three_line_list=0;
-    private final static int tag_five_line_list=1;
-    private final static int tag_zhishu_list=2;
-    private final static int tag_qushi_list=3;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weather_main);
-
-        changeActivityMainBG();
-
-        ListFrame =(FrameLayout)findViewById(R.id.ListFrame);
-        m_three_line_listview= new ListView(this);
-        m_three_line_listview.setItemsCanFocus(false);
-        m_three_line_listview.setVerticalScrollBarEnabled(false);
-
-        AdapterViewListener m_three_line_list_AdapterListener = new AdapterViewListener();
-        m_three_line_listview.setOnItemClickListener(m_three_line_list_AdapterListener );
-
-        m_three_line_listview.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,getDemoListdata()));
-        ListFrame.addView(m_three_line_listview,tag_three_line_list);
-
-    }
-
-    public void changeActivityMainBG(){
-        ActivityMainBG =(RelativeLayout)findViewById(R.id.MainBg);
-        ActivityMainBG.setBackground(this.getResources().getDrawable(R.drawable.weather_sunny));
-    }
-
-    private List<String> getDemoListdata(){
-        List<String> data= new ArrayList<String>();
-
-        data.add("test data 1");
-        data.add("test data 2");
-        data.add("test data 3 asdfasdfasdfasdfsdfasdf");
-
-        return data;
-    }
-
-    class AdapterViewListener implements AdapterView.OnItemClickListener,
-            AdapterView.OnItemLongClickListener {
-        public void onItemClick(AdapterView<?> adapterView, View view, int position, long rowId) {
-
-            return;
-        }
-
-        @Override
-        public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-            return false;
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+package com.example.lisonglin.weatherapp;import android.app.Activity;import android.content.Context;import android.content.Intent;import android.graphics.drawable.PaintDrawable;import android.net.ConnectivityManager;import android.net.NetworkInfo;import android.os.Bundle;import android.os.Handler;import android.os.HandlerThread;import android.os.Message;import android.os.StrictMode;import android.util.Log;import android.view.Menu;import android.view.MenuItem;import android.view.View;import android.widget.AdapterView;import android.widget.ArrayAdapter;import android.widget.FrameLayout;import android.widget.ListView;import android.widget.RelativeLayout;import android.widget.Toast;import java.util.ArrayList;import java.util.List;public class WeatherMainActivity extends Activity {    private RelativeLayout ActivityMainBG;    private  FrameLayout ListFrame;//contain different list    private ListView m_three_line_listview;    private ListView m_five_line_listview;    private ListView m_zhishu_listview;    private ListView m_qushi_listview;    private final static int tag_three_line_list=0;    private final static int tag_five_line_list=1;    private final static int tag_zhishu_list=2;    private final static int tag_qushi_list=3;    private Handler m_Handle;    String  m_NetreturnInfor = null;    private Runnable mBackgroundRunnable = new Runnable() {        @Override        public void run() {//----------模拟耗时的操作，开始---------------            System.out.println("simu get mBackgroundRunnable run:"+Thread.currentThread().getId());            m_NetreturnInfor= new WebAccessURLConnection().GetWebContent("http://www.weather.com.cn/data/sk/101020100.html");            Message msg = m_Handle.obtainMessage();            Bundle b = new Bundle();            b.putString("returnString",m_NetreturnInfor);            msg.setData(b);            m_Handle.sendMessage(msg);//----------模拟耗时的操作，结束---------------        }    };    @Override    protected void onCreate(Bundle savedInstanceState) {        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_weather_main);//        StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();//        StrictMode.setThreadPolicy(policy);        System.out.println("simu get current Thread:"+Thread.currentThread().getId());        //check net connect        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);        NetworkInfo netinfo = cm.getActiveNetworkInfo();        if(netinfo == null){            Toast.makeText(this,"no connection Can't get weather information",Toast.LENGTH_SHORT).show();            return;        }        //start to get weather infor from network  IN NEW Task        //http://m.weather.com.cn/data/101020100.html        //http://www.weather.com.cn/data/sk/101020100.html        HandlerThread m_netthread = new HandlerThread("NetWorkThread");        m_netthread.start();        m_Handle = new Handler(m_netthread.getLooper()){            @Override            public void handleMessage(Message msg){                String result = msg.getData().getString("returnString");                System.out.println("simu handleMessage returnString = "+result);                System.out.println("simu handleMessage thread = "+Thread.currentThread().getId());            }        };//实现耗时操作的线程        m_Handle.post(mBackgroundRunnable);        changeActivityMainBGByWeatherInfo();        ListFrame =(FrameLayout)findViewById(R.id.ListFrame);        m_three_line_listview= new ListView(this);        m_three_line_listview.setSelector(new PaintDrawable(0x00000000));        m_three_line_listview.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,getDemoListdata()));        m_three_line_listview.setStackFromBottom(true);        ListFrame.addView(m_three_line_listview,tag_three_line_list);    }    public void changeActivityMainBGByWeatherInfo(){        ActivityMainBG =(RelativeLayout)findViewById(R.id.MainBg);        ActivityMainBG.setBackground(this.getResources().getDrawable(R.drawable.weather_sunny));    }    private List<String> getDemoListdata(){        List<String> data= new ArrayList<String>();        data.add("test data 1");        data.add("test data 2");        data.add("test data 3 asdfasdfasdfasdfsdfasdf");        return data;    }}
