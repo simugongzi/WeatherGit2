@@ -86,13 +86,13 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView"
+                    android:id="@+id/tempImage1"
                     android:src="@drawable/zero" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView2"
+                    android:id="@+id/tempImage2"
                     android:src="@drawable/zero" />
 
                 <ImageView
@@ -153,7 +153,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="air condition nice"
-                        android:id="@+id/textView2"
+                        android:id="@+id/airCondition"
                         android:textColor="#ffffffff" />
 
                     <ImageView
@@ -170,7 +170,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="public time"
-                    android:id="@+id/textView"
+                    android:id="@+id/publictime"
                     android:paddingLeft="30dp"
                     android:textColor="#ffffffff" />
             </LinearLayout>
@@ -230,23 +230,37 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:src="@drawable/iconzhishu"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/imageButton2"
-            android:src="@drawable/iconqushi"
-            android:layout_weight="1" />
+            android:background="@drawable/iconqushi"
+            />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageButton3"
-            android:src="@drawable/iconrefresh"
-            android:layout_weight="1" />
+            android:background="@drawable/iconrefresh"
+            />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton"
+                android:background="@drawable/iconzhishu"
+                android:layout_gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Medium Text"
+                android:id="@+id/textView" />
+        </LinearLayout>
 
     </LinearLayout>
 
